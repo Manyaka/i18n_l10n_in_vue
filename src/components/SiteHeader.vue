@@ -19,6 +19,7 @@ export default {
 <style>
 .SiteHeader {
   text-align: center;
+  margin-bottom: 2em;
 }
 </style>
 <style module>
