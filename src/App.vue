@@ -1,8 +1,8 @@
 <template>
-  <div class="App">
+  <main :class="$style.main">
     <SiteHeader />
     <SomeArticle />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -22,7 +22,8 @@ export default {
 </script>
 
 <style module>
-.App {
-  visibility: visible;
+.main {
+  max-width: 800px;
+  margin: 30px auto;
 }
 </style>
