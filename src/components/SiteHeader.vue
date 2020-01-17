@@ -5,7 +5,7 @@
     <p :class="$style.p">Переключение языков:</p>
     <div>
       <button type="button" :class="$style.btn">Русский</button>
-      <button type="button" :class="$style.btn">Английский</button>
+      <button type="button" :class="$style.btn">English</button>
     </div>
   </div>
 </template>
@@ -69,7 +69,7 @@ export default {
   }
 }
 
-.btn:first-child {
+.btn:not(:last-child) {
   margin-right: 2em;
 }
 
