@@ -1,8 +1,8 @@
 <template>
   <div class="SomeArticle">
-    <h2 :class="$style.title">{{ articleTitle }}</h2>
-    <p :class="$style.date">{{ articleDate }}</p>
-    <p :class="$style.body">{{ articleBody }}</p>
+    <h2 :class="$style.title">{{ article.title }}</h2>
+    <p :class="$style.date">{{ article.date }}</p>
+    <p :class="$style.body">{{ article.body }}</p>
   </div>
 </template>
 
@@ -10,18 +10,9 @@
 export default {
   name: 'SomeArticle',
   props: {
-    articleTitle: {
-      type: String,
-      default: 'Заголовок статьи'
-    },
-    articleDate: {
-      type: String,
-      default: '30.10.2020'
-    },
-    articleBody: {
-      type: String,
-      default:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur deserunt ea eos excepturi ipsa natus nostrum rem sed soluta velit! Distinctio facere repudiandae sequi soluta sunt. Amet distinctio eum ex.'
+    article: {
+      type: Object,
+      default: () => ({})
     }
   }
 };

@@ -1,3 +1,5 @@
+const merge = require('deepmerge');
+
 module.exports = {
   css: {
     requireModuleExtension: true,
@@ -14,5 +16,17 @@ module.exports = {
       }
     }
   },
-  productionSourceMap: false
+  productionSourceMap: false,
+  chainWebpack: (config) => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap((options) =>
+        merge(options, {
+          loaders: {
+            i18n: '@kazupon/vue-i18n-loader'
+          }
+        })
+      );
+  }
 };

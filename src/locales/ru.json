@@ -1,1 +1,10 @@
-{}
+{
+  "ru": {
+    "onSite": "На сайте",
+    "articles": "статья | статьи | статей"
+  },
+  "en": {
+    "onSite": "On site",
+    "articles": "article | articles"
+  }
+}
