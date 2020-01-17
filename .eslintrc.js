@@ -22,5 +22,6 @@ module.exports = {
     'spaced-comment': 'off',
     'prefer-const': 'off',
     semi: ['error', 'always'],
+    'space-before-function-paren': 'off'
   }
 };
