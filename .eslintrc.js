@@ -4,9 +4,6 @@ module.exports = {
     node: true,
     es6: true
   },
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
   extends: [
     'plugin:vue/essential',
     '@vue/standard'
@@ -22,6 +19,8 @@ module.exports = {
     'spaced-comment': 'off',
     'prefer-const': 'off',
     semi: ['error', 'always'],
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    'import/first': 'off',
+    'no-unused-vars': 'off'
   }
 };

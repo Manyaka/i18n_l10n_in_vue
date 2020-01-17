@@ -14,9 +14,6 @@ export default {
   components: {
     SiteHeader,
     SomeArticle
-  },
-  data () {
-    return {};
   }
 };
 </script>

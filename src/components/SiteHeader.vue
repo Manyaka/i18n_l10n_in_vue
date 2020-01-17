@@ -3,23 +3,22 @@
     <h1 :class="$style.title">{{ $t('siteTitle') }}</h1>
     <cite :class="$style.cite">{{ $t('siteText') }}</cite>
     <p :class="$style.p">{{ $t('changeLang') }}</p>
+    <!--TODO это свой компонент-->
     <div>
       <button
-        v-for="lang in languages"
-        :key="`lang_${lang.flag}`"
+        v-for="locale in languages"
+        :key="`lang_${locale.flag}`"
         type="button"
         :class="$style.btn"
-        @click="btnLangClickHandler(lang.flag)"
+        @click="btnLangClickHandler(locale.flag)"
       >
-        {{ lang.title }}
+        {{ locale.title }}
       </button>
     </div>
   </div>
 </template>
 
 <script>
-import i18n from '@/plugins/i18n';
-
 export default {
   name: 'SiteHeader',
   data() {
@@ -30,9 +29,22 @@ export default {
       ]
     };
   },
+  created() {
+    this.getT9n(this.$i18n.locale);
+  },
   methods: {
-    btnLangClickHandler(lang) {
-      i18n.locale = lang;
+    btnLangClickHandler(locale) {
+      this.getT9n(locale);
+    },
+    getT9n(locale) {
+      import(`@/locales/components/${this.$options._componentTag}.${locale}.json`)
+        .then((msgs) => {
+          this.$i18n.setLocaleMessage(locale, msgs);
+          this.$i18n.locale = locale;
+        })
+        .catch((err) => {
+          console.err(err.message);
+        });
     }
   }
 };
