@@ -37,7 +37,7 @@ export default {
       this.getT9n(locale);
     },
     getT9n(locale) {
-      import(`@/locales/components/${this.$options._componentTag}.${locale}.json`)
+      import(`@/locales/${locale}.json`)
         .then((msgs) => {
           this.$i18n.setLocaleMessage(locale, msgs);
           this.$i18n.locale = locale;

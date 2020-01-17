@@ -12,21 +12,6 @@ export default {
       type: Number,
       default: 0
     }
-  },
-  created() {
-    this.getT9n(this.$i18n.locale);
-  },
-  methods: {
-    getT9n(locale) {
-      import(`@/locales/components/${this.$options._componentTag}.${locale}.json`)
-        .then((msgs) => {
-          this.$i18n.setLocaleMessage(locale, msgs);
-          this.$i18n.locale = locale;
-        })
-        .catch((err) => {
-          console.err(err.message);
-        });
-    }
   }
 };
 </script>

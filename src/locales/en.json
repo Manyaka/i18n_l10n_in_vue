@@ -1,0 +1,7 @@
+{
+  "siteTitle": "Hardcoded site title",
+  "siteText": "Description a la greeting of what the site does",
+  "changeLang": "Language switching:",
+  "onSite": "On site",
+  "articles": "no articles | {n} article | {n} articles | {n} articles"
+}
