@@ -1,8 +1,8 @@
 <template>
   <div class="SomeArticle">
-    <h2 :class="$style.title">{{ article.title }}</h2>
+    <h2 :class="$style.title">{{ title }}</h2>
     <p :class="$style.date">{{ article.date }}</p>
-    <p :class="$style.body">{{ article.body }}</p>
+    <p :class="$style.body">{{ body }}</p>
   </div>
 </template>
 
@@ -13,6 +13,14 @@ export default {
     article: {
       type: Object,
       default: () => ({})
+    }
+  },
+  computed: {
+    title() {
+      return this.article[`title_${this.$i18n.locale}`];
+    },
+    body() {
+      return this.article[`body_${this.$i18n.locale}`];
     }
   }
 };
