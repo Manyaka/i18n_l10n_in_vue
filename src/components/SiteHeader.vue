@@ -1,18 +1,40 @@
 <template>
   <div class="SiteHeader">
-    <h1 :class="$style.title">Захардкоженный заголовок сайта</h1>
-    <cite :class="$style.cite">Описание а-ля приветствие того, что делает сайт</cite>
-    <p :class="$style.p">Переключение языков:</p>
+    <h1 :class="$style.title">{{ $t('siteTitle') }}</h1>
+    <cite :class="$style.cite">{{ $t('siteText') }}</cite>
+    <p :class="$style.p">{{ $t('changeLang') }}</p>
     <div>
-      <button type="button" :class="$style.btn">Русский</button>
-      <button type="button" :class="$style.btn">English</button>
+      <button
+        v-for="lang in languages"
+        :key="`lang_${lang.flag}`"
+        type="button"
+        :class="$style.btn"
+        @click="btnLangClickHandler(lang.flag)"
+      >
+        {{ lang.title }}
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+import i18n from '@/plugins/i18n';
+
 export default {
-  name: 'SiteHeader'
+  name: 'SiteHeader',
+  data() {
+    return {
+      languages: [
+        { flag: 'ru', title: 'Русский' },
+        { flag: 'en', title: 'English' }
+      ]
+    };
+  },
+  methods: {
+    btnLangClickHandler(lang) {
+      i18n.locale = lang;
+    }
+  }
 };
 </script>
 
