@@ -1,20 +1,6 @@
-<i18n>
-{
-  "ru": {
-    "onSite": "На сайте",
-    "articles": "статья | статьи | статей"
-  },
-  "en": {
-    "onSite": "On site",
-    "articles": "article | articles"
-  }
-}
-</i18n>
-
 <template>
-  <!--<p :clas s="$style.p">На сайте 2 статьи</p>-->
   <p :class="$style.p">
-    {{ $t('onSite') }} {{ articleCount }} {{ $tc('articles', articleCount) }}
+    {{ $t('onSite') }} {{ $tc('articles', articleCount) }}
   </p>
 </template>
 
@@ -28,7 +14,19 @@ export default {
     }
   },
   created() {
-    this.$i18n.locale = 'ru';
+    this.getT9n(this.$i18n.locale);
+  },
+  methods: {
+    getT9n(locale) {
+      import(`@/locales/components/${this.$options._componentTag}.${locale}.json`)
+        .then((msgs) => {
+          this.$i18n.setLocaleMessage(locale, msgs);
+          this.$i18n.locale = locale;
+        })
+        .catch((err) => {
+          console.err(err.message);
+        });
+    }
   }
 };
 </script>
