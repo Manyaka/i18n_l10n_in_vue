@@ -2,6 +2,10 @@
   <p :class="$style.p">
     {{ $t('onSite') }} {{ $tc('articles', articleCount) }}
   </p>
+  <p :class="$style.p">
+    {{ $tc('articles', articleCount) }} {{ $t('onSite') }}
+  </p>
+
 </template>
 
 <script>
